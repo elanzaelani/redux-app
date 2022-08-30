@@ -10,13 +10,22 @@ const EditProduct = () => {
     const navigate = useNavigate();
     const {id}=useParams();
 
+    const product =useSelector((state)=> productSelectors.selectById(state, id));
+
 useEffect(()=>{
     dispatch(getProducts());
 },[dispatch])
    
+useEffect(()=>{
+    if(product){
+        setTitle(product.title);
+        setPrice(product.price);
+    }
+},[product])
+   
 
   return (
-    <div>
+    <div>;
         <form className='box mt-5'>
             <div className="field">
                 <label className="label">Title</label>
