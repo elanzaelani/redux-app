@@ -15,7 +15,7 @@ export const saveProducts = createAsyncThunk("products/saveProducts",async({titl
 });
 
 export const updateProduct = createAsyncThunk("products/updateProduct",async({id,title,price})=>{
-  const response = await axios.post(`http://localhost:5000/products/${id}`,{
+  const response = await axios.patch(`http://localhost:5000/products/${id}`,{
     title,
     price
   });

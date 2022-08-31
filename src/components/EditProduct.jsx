@@ -22,11 +22,18 @@ useEffect(()=>{
         setPrice(product.price);
     }
 },[product])
+
+const handleUpdate=async(e)=>{
+    e.preventDefault();
+    await dispatch(updateProduct({id,title,price}));
+    navigate('/')
+
+}
    
 
   return (
     <div>;
-        <form className='box mt-5'>
+        <form onSubmit={handleUpdate} className='box mt-5'>
             <div className="field">
                 <label className="label">Title</label>
                 <div className="control">
